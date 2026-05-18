@@ -1,0 +1,47 @@
+using System.Runtime.CompilerServices;
+using Unity.Hierarchy;
+using UnityEngine;
+
+public class RocketBehaviour : MonoBehaviour
+{
+   Transform target;
+   float speed = 15.0f;
+   bool homing = false;
+
+   float rocketStrength = 15.0f;
+   float aliveTimer = 5.0f;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public void Fire(Transform newTarget)
+    {
+        target = newTarget;
+        homing = true;
+        Destroy(gameObject, aliveTimer);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if(homing && target  != null)
+        {
+            Vector3 moveDirection = (target.transform.position - target.transform.forward).normalized;
+            transform.position += moveDirection * speed * Time.deltaTime;
+            transform.LookAt(target);
+        }
+    }
+
+    
+
+   private void OnCollisionEnter(Collision col)
+    {
+        if (target != null)
+        {
+            if (col.gameObject.CompareTag(target.tag))
+            {
+                Rigidbody targetRigidbody = col.gameObject.GetComponent<Rigidbody>();
+                Vector3 away = -col.contacts[0].normal;
+                targetRigidbody.AddForce(away * rocketStrength, ForceMode.Impulse);
+                Destroy(gameObject);
+            }
+        }
+    }
+}

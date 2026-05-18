@@ -397,8 +397,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   hasPowerup: 0
-  powerupIndicator: {fileID: 0}
-  powerDownIndicator: {fileID: 0}
+  powerupIndicator: {fileID: 989996689}
 --- !u!1 &949479274
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +427,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b3620b0f71d944409c8096646817d2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 2374110541918300341, guid: ab1540263a801854486fb919e731c551, type: 3}
+  enemyPrefab:
+  - {fileID: 2374110541918300341, guid: ab1540263a801854486fb919e731c551, type: 3}
+  - {fileID: 2374110541918300341, guid: a306728356e324e4f8ac78847fce978c, type: 3}
+  powerupPrefab: {fileID: 8574135531662474815, guid: fa733084a57c32b4eabc62ddbe7c5e99, type: 3}
+  waveNumber: 1
+  enemyCount: 0
 --- !u!4 &949479276
 Transform:
   m_ObjectHideFlags: 0
@@ -517,6 +521,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 923deea38dc6a8843b15db7638919c1e, type: 3}
+--- !u!1 &989996689 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1742899641471652, guid: 923deea38dc6a8843b15db7638919c1e, type: 3}
+  m_PrefabInstance: {fileID: 989996688}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1211016355
 GameObject:
   m_ObjectHideFlags: 0
